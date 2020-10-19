@@ -1,4 +1,4 @@
-from tkinter import Tk, Frame, Button, mainloop, Label, messagebox, Entry
+from tkinter import Tk, Frame, Button, mainloop, Label, messagebox, Entry, StringVar
 from random import randint, choice
 
 saved=""
@@ -12,6 +12,7 @@ class MyGUI:
 
 
                 self.dna_entry = Entry(self.input_frame,width=10)
+                self.value = StringVar()
 
                 
                 self.insertion = Button(self.menu_frame,
@@ -37,7 +38,7 @@ class MyGUI:
 
 
                 self.output = Label(self.output_frame,
-                                    text=self.dna_entry.get())
+                                    textvariable=self.value)
 
                 self.dna_entry.pack(side="left")
                 self.insertion.pack(side="top")
@@ -62,9 +63,8 @@ class MyGUI:
                         dna = self.dna_entry.get()
                 else:
                         dna=saved
-                self.output=Label(self.output,text=dna)
+                self.value.set(dna)
                 saved=dna
-                self.output.pack()
 
         def reverse(self):
                 global saved
@@ -72,9 +72,9 @@ class MyGUI:
                         dna = self.dna_entry.get()
                 else:
                         dna=saved
-                self.output=Label(self.output,text=dna[::-1])
+                self.value.set(dna[::-1])
                 saved=dna[::-1]
-                self.output.pack()
+
 
 
         def mutate(self):
@@ -87,9 +87,8 @@ class MyGUI:
                 m_r=randint(1,len(dna))
                 while dna_mutated==dna:
                         dna_mutated=dna_mutated[:m_r-1]+choice(["A","C","G","T"])+dna_mutated[m_r:]
-                self.output = Label(self.output,text=dna_mutated)
+                self.value.set(dna_mutated)
                 saved=dna_mutated
-                self.output.pack()
 
         def complement(self):
                 global saved
@@ -103,8 +102,7 @@ class MyGUI:
                 saved = "".join([["A","C","G","T"]\
                                 [3-["A","C","G","T"].index(i)]\
                                   for i in dna])
-                self.output =Label(self.output,text=saved)
-                self.output.pack()
+                self.value.set(saved)
 
 
 
