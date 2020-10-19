@@ -2,7 +2,7 @@ from tkinter import Tk, Frame, Button, mainloop, Label, messagebox, Entry, Strin
 from random import randint, choice
 
 saved=""
-class MyGUI:
+class DnaMenu:
         def __init__(self):
                 self.main_window = Tk()
 
@@ -106,4 +106,4 @@ class MyGUI:
 
 
 
-my_gui = MyGUI()
+dna_menu = DnaMenu()
