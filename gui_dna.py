@@ -16,24 +16,28 @@ class DnaMenu:
 
                 
                 self.insertion = Button(self.menu_frame,
-                                        text="insertion",
+                                        text="Insertion",
                                         command=self.insertion)
                 
                 self.reverse = Button(self.menu_frame,
-                                        text="reverse",
+                                        text="Reverse",
                                         command=self.reverse)
                 
                 self.mutate = Button(self.menu_frame,
-                                        text="mutate",
+                                        text="Mutate",
                                         command=self.mutate)
                 
                 self.complement = Button(self.menu_frame,
-                                        text="complement",
+                                        text="Complement",
                                         command=self.complement)
                 
                 self.reset = Button(self.menu_frame,
-                                        text="reset",
+                                        text="Reset",
                                         command=self.reset)
+
+                self.quit = Button(self.menu_frame,
+                                        text="Quit",
+                                        command=self.main_window.destroy)
 
 
 
@@ -46,6 +50,7 @@ class DnaMenu:
                 self.mutate.pack(side="top")
                 self.complement.pack(side="top")
                 self.reset.pack(side="top")
+                self.quit.pack(side="top")
                 self.output.pack(side="top")
 
                 self.input_frame.pack()
@@ -55,6 +60,7 @@ class DnaMenu:
         def reset(self):
                 global saved
                 saved=""
+                self.value.set(saved)
                 
 
         def insertion(self):
@@ -63,6 +69,13 @@ class DnaMenu:
                         dna = self.dna_entry.get()
                 else:
                         dna=saved
+                change_index=randint(0,len(dna)-1)
+                dna=list(dna)
+                
+                dna[change_index]+=choice(["A","C","G","T"])
+
+                dna="".join(dna)
+                
                 self.value.set(dna)
                 saved=dna
 
