@@ -16,27 +16,27 @@ class DnaMenu:
 
                 
                 self.insertion = Button(self.menu_frame,
-                                        text="Insertion",
+                                        text="Insert random base",
                                         command=self.insertion)
                 
                 self.reverse = Button(self.menu_frame,
-                                        text="Reverse",
+                                        text="Reverse String",
                                         command=self.reverse)
                 
                 self.mutate = Button(self.menu_frame,
-                                        text="Mutate",
+                                        text="Mutate Random base",
                                         command=self.mutate)
                 
                 self.complement = Button(self.menu_frame,
-                                        text="Complement",
+                                        text="Show Complementary String",
                                         command=self.complement)
                 
                 self.reset = Button(self.menu_frame,
-                                        text="Reset",
+                                        text="Reset current input",
                                         command=self.reset)
 
                 self.quit = Button(self.menu_frame,
-                                        text="Quit",
+                                        text="Quit session",
                                         command=self.main_window.destroy)
 
 
